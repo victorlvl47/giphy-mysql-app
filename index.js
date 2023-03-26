@@ -10,6 +10,8 @@ guardarButton.setAttribute("id", "guardar-info");
 guardarButton.innerHTML = "Guardar Informaci&#243;n";
 var consultarButton = document.getElementById("consultar-db");
 var dbButtons = document.querySelector(".db-buttons");
+var fechaDbInfo = document.createElement("p");
+fechaDbInfo.setAttribute("id", "fecha-db"); 
 
 var searchInfo = {};
 
@@ -46,13 +48,19 @@ consultarButton.addEventListener('click', () => {
 
 window.comunicacion.showGiphyResultDB(function(event, args) {
 
+  if (fechaDbInfo !== null) {
+    fechaDbInfo.remove();
+  }
+
   var imgSrc;
 
   if (args != null) {
     imgSrc = args.media_link;
+    fechaDbInfo.innerHTML = "Fecha en base de datos: " + args.media_date;
   }
   else {
     imgSrc = "https://media.giphy.com/media/l2JehGxiNf82wzutW/giphy.gif";
+    fechaDbInfo.innerHTML = "";
   }
 
   // fadeout
@@ -64,6 +72,8 @@ window.comunicacion.showGiphyResultDB(function(event, args) {
     giphy.setAttribute("src", imgSrc);
     giphyLink.setAttribute("href", imgSrc);
     giphyLink.style.visibility = "visible";
+    // append fechaDbInfo as the first child
+    document.querySelector(".giphy").insertAdjacentElement('afterbegin', fechaDbInfo);
 
     setTimeout(function() {
       giphy.classList.add("gif");
@@ -99,6 +109,10 @@ function goGiphy() {
 
     if (guardarButton !== null) {
       guardarButton.remove();
+    }
+
+    if (fechaDbInfo !== null) {
+      fechaDbInfo.remove();
     }
 
     var input = search.value;
