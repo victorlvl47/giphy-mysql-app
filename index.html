@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GIPHY Search API</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        
+        <header>
+        <h1>GIPHY ELECTRON APP</h1>
+        
+        <form action="" method="post" autocomplete="off">
+            <label for="" style="display: none;">Search</label>
+            <input class="search" type="text" name="search" placeholder="" required>
+            <input class="btn" type="submit" value="&#128269;">
+            <br><br>
+            <label for="type">type:</label>
+            <select name="type" id="type">
+                <option value="gifs">gifs</option>
+                <option value="stickers">stickers</option>
+            </select>
+            <label id="weirdness-label" for="weirdness">weirdness:</label>
+            <select name="weirdness" id="weirdness">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </form>
+        </header>
+    
+        <div class="db-buttons">
+            <!-- <button id="guardar-info">Guardar Informaci&#243;n</button> -->
+            <button id="consultar-db">Consultar Base de Datos</button>
+        </div>
+
+        <section>
+        <div class="giphy">
+            <a href="https://developers.giphy.com/docs/api" target="_blank">
+                <img src="./giphy-api.gif" alt="giphy api">
+            </a>
+        </div>
+        </section>
+
+        <footer>
+            <h4>GIPHY APY</h4>
+            App que utiliza el <a href="https://developers.giphy.com/docs/api/endpoint/#translate" target="_blank" rel="noopener noreferrer">Translate Endpoint</a> de GIPHY API.
+        </footer>
+
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>
